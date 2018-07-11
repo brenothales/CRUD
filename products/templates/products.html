@@ -1,0 +1,66 @@
+<!doctype html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/w3.css' %}">
+</head>
+<body  class="w3-">
+
+<div class="w3-container w3-">
+    <h1>Lista de Alunos</h1>
+    <br>
+    <button class="w3-button w3-green  w3-round" type="submit"><a href="{% url 'create_products' %}">Cadastrar Aluno</a></button>
+
+
+    <div class="w3-container w3-">
+        <br>
+			<table  class="w3-table-all w3-centered w3-striped w3-border w3-hoverable w3-card-4 ">
+
+                <thead>
+
+					    <tr class="w3-green">
+
+						        <th>Nome</th>
+                                <th>Data de Nascimento</th>
+                                <th>Idade</th>
+                                <th>CPF</th>
+                                <th>Email</th>
+                                <th >Telefone</th>
+                                <th>Data do Cadastro</th>
+
+                        </tr>
+                </thead>
+
+                <tbody>
+        {% for product in products %}
+
+
+                        <tr>
+
+                                <td> <a href="{% url 'update_product' product.id %}"> {{ product.Nome }}  </a></td>
+                                <td> {{ product.nasc|date:"d/m/Y" }}</td>
+                                <td> {{ product.idade }}</td>
+                                <td> {{ product.CPF }}</td>
+                                <td> {{ product.email }}</td>
+                                <td> {{ product.Tel }}</td>
+                                <td> {{ product.data|date:"d/m/Y"}}</td>
+
+                        </tr>
+
+
+        {% endfor %}
+                </tbody>
+            </table>
+    </div>
+    <br>
+
+</div>
+ </body>
+
+</html>
