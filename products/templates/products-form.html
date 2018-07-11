@@ -11,33 +11,28 @@
 </head>
 
 <body  class="w3-">
+    <div class="w3-container ">
+        <h1>Dados Pessoais</h1>
 
+     <div class="w3-container ">
 
-<div class="w3-container">
-            <h2>Dados pessoais</h2>
+         <form  class="w3-container w3-card-4"  method="POST">
+        {% csrf_token %}
 
+         {{ form.as_p }}
 
-        <div class="w3-container ">
+        <br>
 
-             <form  class="w3-container  w3-card-4" method="POST">
-             {% csrf_token %}
+        <button class="w3-button w3-green  w3-round" type="submit">Salvar</button>   {% if product %}
+         <button class="w3-button w3-green w3-round" ><a href="{% url 'delete_product' product.id %}">Deletar</a></button>
 
-                 {{ form.as_p }}
-
-
-             </form>
-
-        </div>
-
-
-
-    <br>
-
-    <button class="w3-button w3-green  w3-round" type="submit">Salvar</button>   {% if product %}
-        <button class="w3-button w3-green w3-round" ><a href="{% url 'delete_product' product.id %}">Deletar</a></button>
 
     {% endif %}
+             <br>
+             <br>
+    </form>
+    </div>
 
-</div>
+
+    </div>
 </body>
-</html>
