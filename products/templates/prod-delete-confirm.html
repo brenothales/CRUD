@@ -9,11 +9,12 @@
     <title>Document</title>
     <link rel="stylesheet" href="{% static 'css/w3.css' %}">
 </head>
-<body>
+<body >
     <form method="post">
         {% csrf_token %}
-        <h2>Você confirma a exclusão de {{ product.Nome }} ?</h2>
-        <button class="w3-button w3-green  w3-round" type="submit">Confirmar</button>
+        <h2 style="text-shadow:1px 1px 0 #444">Você confirma a exclusão de {{ product.Nome }} ?</h2>
+        <button class="w3-button w3-green w3-round" type="submit">Confirmar</button>
+        <button class="w3-button w3-green w3-round" ><a href="{% url 'list_products' %}">Cancelar</a></button>
     </form>
 </body>
 </html>
